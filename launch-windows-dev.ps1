@@ -19,4 +19,4 @@ $Env:ASPNETCORE_ENVIRONMENT = "Production"
 $Env:ASPNETCORE_URLS = "http://*:7801"
 
 # Actual runner.
-dotnet src\bin\live_release\StableSwarmUI.dll --environment dev @args
+./zluda/zluda.exe (dotnet src\bin\live_release\StableSwarmUI.dll --environment dev @args)

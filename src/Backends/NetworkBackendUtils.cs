@@ -255,8 +255,10 @@ public static class NetworkBackendUtils
             else if (File.Exists($"{dir}/../python_embeded/python.exe"))
             {
                 start.FileName = Path.GetFullPath($"{dir}/../python_embeded/python.exe");
+
                 start.WorkingDirectory = Path.GetFullPath($"{dir}/..");
                 preArgs = "-s " + Path.GetFullPath(path)[(start.WorkingDirectory.Length + 1)..];
+
                 AddPath(Path.GetFullPath($"{dir}/../python_embeded"));
             }
             else
@@ -317,6 +319,7 @@ public static class NetworkBackendUtils
             string postArgs = extraArgs.Replace("{PORT}", $"{port}").Trim();
             if (path.EndsWith(".py"))
             {
+                Logs.Warning($"({nameSimple} launch) Will use python: {start.FileName}");
                 ConfigurePythonExeFor(startScript, nameSimple, start, out preArgs);
                 Logs.Debug($"({nameSimple} launch) Will use python: {start.FileName}");
             }
